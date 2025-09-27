@@ -5,7 +5,7 @@
  *      Author: ADMIN-5540
  */
 #include "ex1.h"
-void display7SEG(int num,int slot){
+void display7SEG(int num,int status){
 	switch (num)
 	{
 	case 0:
@@ -102,7 +102,7 @@ void display7SEG(int num,int slot){
 		break;
 	}
 
-switch (slot){
+switch (status){
 case 0:
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_6,GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7,GPIO_PIN_SET);

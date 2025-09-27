@@ -7,7 +7,7 @@
 #include "main.h"
 #ifndef INC_EX1_H_
 #define INC_EX1_H_
-void display7SEG(int num,int slot);
+void display7SEG(int num,int status);
 void charLED();
 
 

@@ -21,7 +21,7 @@
 #include "main.h"
 #include "ex1.h"
 int bff [2]={1,2};
-int slot = 1;
+int status = 1;
 int counter = 100;
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -233,13 +233,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*htim){
 		 counter = 100;
 	 HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 	 }
-	 if (slot == 1) {
-		 slot = 0;}
+	 if (status == 1) {
+		 status = 0;}
 		 else{
-			 slot = 1;
+			status = 1;
 	 }
 	 clearLED();
-	 display7SEG(bff[slot],slot);
+	 display7SEG(bff[status],status);
 	}
 }
 
