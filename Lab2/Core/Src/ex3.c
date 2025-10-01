@@ -1,0 +1,132 @@
+/*
+ * ex3.c
+ *
+ *  Created on: 28 thg 9, 2025
+ *      Author: ADMIN-5540
+ */
+#include "ex3.h"
+const int MAX_LED=4;
+int index_led=0;
+int led_buffer[4]={1,2,3,4};
+void display7SEG(int index,int num){
+	switch (num)
+	{
+	case 0:
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_2,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,1);
+		break;
+	case 1:
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_2,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,1);
+		break;
+	case 2:
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_2,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,0);
+		break;
+	case 3:
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_2,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,0);
+		break;
+	case 4:
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_2,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,0);
+		break;
+	case 5:
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_2,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,0);
+		break;
+	case 6:
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_2,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,0);
+		break;
+	case 7:
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_2,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,1);
+		break;
+	case 8:
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_2,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,0);
+		break;
+	case 9:
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_2,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,1);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,0);
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,0);
+		break;
+	default:
+		break;
+	}
+}
+void clearLED(){
+	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4
+			|GPIO_PIN_5|GPIO_PIN_6,GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9,GPIO_PIN_SET);
+}
+void update7SEG(int index){
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9, GPIO_PIN_SET);
+	display7SEG(index,led_buffer[index]);
+	switch(index){
+	case 0:
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_6,GPIO_PIN_RESET);
+		break;
+	case 1:
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7,GPIO_PIN_RESET);
+		break;
+	case 2:
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_8,GPIO_PIN_RESET);
+		break;
+	case 3:
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_9,GPIO_PIN_RESET);
+		break;
+	default:
+		break;
+	}
+}
