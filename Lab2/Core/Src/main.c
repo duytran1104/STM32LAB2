@@ -218,11 +218,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer1(1000);
+  setTimer1(100);
   while (1)
   {
 	  if (timer1_flag == 1){
-		  setTimer1(1000);
+		  setTimer1(100);
 		  HAL_GPIO_TogglePin(DOT_GPIO_Port,DOT_Pin);
 		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port,LED_RED_Pin);
 	  }
@@ -356,18 +356,17 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 int idx = 0;
-int counter = 1000;
+int counter = 100;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	 { timerRun();
 		 counter--;
-	 if (counter == 500 || counter == 0){
+	 if (counter == 50|| counter == 0){
 		 if(counter == 0){
-			 counter = 1000;
+			 counter = 100;
 		 }
 	update7SEG(idx);
 	 idx++;
 	 if(idx >=4) idx = 0;
-
     }
 	 }}
 /* USER CODE END 4 */
