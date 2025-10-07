@@ -967,11 +967,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer0(125);
- 80007d4:	207d      	movs	r0, #125	; 0x7d
+  setTimer0(25);
+ 80007d4:	2019      	movs	r0, #25
  80007d6:	f000 f969 	bl	8000aac <setTimer0>
-  setTimer1(125);
- 80007da:	207d      	movs	r0, #125	; 0x7d
+  setTimer1(25);
+ 80007da:	2019      	movs	r0, #25
  80007dc:	f000 f97a 	bl	8000ad4 <setTimer1>
   setTimer2(25);
  80007e0:	2019      	movs	r0, #25
@@ -987,8 +987,8 @@ int main(void)
  80007ec:	681b      	ldr	r3, [r3, #0]
  80007ee:	2b01      	cmp	r3, #1
  80007f0:	d130      	bne.n	8000854 <main+0x9c>
-	  	  setTimer0(100);
- 80007f2:	2064      	movs	r0, #100	; 0x64
+	  	  setTimer0(25);
+ 80007f2:	2019      	movs	r0, #25
  80007f4:	f000 f95a 	bl	8000aac <setTimer0>
 	   	  HAL_GPIO_TogglePin(DOT_GPIO_Port,DOT_Pin);
  80007f8:	2110      	movs	r1, #16
@@ -1053,8 +1053,8 @@ int main(void)
  8000856:	681b      	ldr	r3, [r3, #0]
  8000858:	2b01      	cmp	r3, #1
  800085a:	d10d      	bne.n	8000878 <main+0xc0>
-	  	  setTimer1(100);
- 800085c:	2064      	movs	r0, #100	; 0x64
+	  	  setTimer1(25);
+ 800085c:	2019      	movs	r0, #25
  800085e:	f000 f939 	bl	8000ad4 <setTimer1>
 	  	    update7SEG(idx);
  8000862:	6878      	ldr	r0, [r7, #4]
@@ -1243,9 +1243,9 @@ static void MX_TIM2_Init(void)
  8000974:	4b19      	ldr	r3, [pc, #100]	; (80009dc <MX_TIM2_Init+0x94>)
  8000976:	2200      	movs	r2, #0
  8000978:	609a      	str	r2, [r3, #8]
-  htim2.Init.Period = 1;
+  htim2.Init.Period = 9;
  800097a:	4b18      	ldr	r3, [pc, #96]	; (80009dc <MX_TIM2_Init+0x94>)
- 800097c:	2201      	movs	r2, #1
+ 800097c:	2209      	movs	r2, #9
  800097e:	60da      	str	r2, [r3, #12]
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
  8000980:	4b16      	ldr	r3, [pc, #88]	; (80009dc <MX_TIM2_Init+0x94>)

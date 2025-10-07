@@ -293,15 +293,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer0(125);
-  setTimer1(125);
+  setTimer0(25);
+  setTimer1(25);
   setTimer2(25);
  int idx = 0;
   while (1)
   {
     /* USER CODE END WHILE */
 	  if (timer0_flag == 1){
-	  	  setTimer0(100);
+	  	  setTimer0(25);
 	   	  HAL_GPIO_TogglePin(DOT_GPIO_Port,DOT_Pin);
 	   	  HAL_GPIO_TogglePin(LED_RED_GPIO_Port,LED_RED_Pin);
 	   	  second++;
@@ -318,7 +318,7 @@ int main(void)
 	   	    }
 	    updateClockBuffer();}
 	    if (timer1_flag == 1){
-	  	  setTimer1(100);
+	  	  setTimer1(25);
 	  	    update7SEG(idx);
 	  	    idx++;
 	  if(idx >=4) idx = 0;}
@@ -335,6 +335,7 @@ int main(void)
   }
   /* USER CODE END 3 */
 }
+
 
 /**
   * @brief System Clock Configuration
@@ -392,7 +393,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 7999;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 1;
+  htim2.Init.Period = 9;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
