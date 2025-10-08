@@ -973,8 +973,8 @@ int main(void)
   setTimer1(25);
  80007da:	2019      	movs	r0, #25
  80007dc:	f000 f97a 	bl	8000ad4 <setTimer1>
-  setTimer2(25);
- 80007e0:	2019      	movs	r0, #25
+  setTimer2(3);
+ 80007e0:	2003      	movs	r0, #3
  80007e2:	f000 f98b 	bl	8000afc <setTimer2>
  int idx = 0;
  80007e6:	2300      	movs	r3, #0
@@ -1075,8 +1075,8 @@ int main(void)
  800087a:	681b      	ldr	r3, [r3, #0]
  800087c:	2b01      	cmp	r3, #1
  800087e:	d1b4      	bne.n	80007ea <main+0x32>
-	  		  setTimer2(25);
- 8000880:	2019      	movs	r0, #25
+	  		  setTimer2(3);
+ 8000880:	2003      	movs	r0, #3
  8000882:	f000 f93b 	bl	8000afc <setTimer2>
 	  		  updateLEDMatrix(index_led_matrix);
  8000886:	4b11      	ldr	r3, [pc, #68]	; (80008cc <main+0x114>)

@@ -295,7 +295,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer0(25);
   setTimer1(25);
-  setTimer2(25);
+  setTimer2(3);
  int idx = 0;
   while (1)
   {
@@ -324,7 +324,7 @@ int main(void)
 	  if(idx >=4) idx = 0;}
 
 	  if(timer2_flag == 1){
-	  		  setTimer2(25);
+	  		  setTimer2(3);
 	  		  updateLEDMatrix(index_led_matrix);
 	  		  index_led_matrix++;
 	  		  if (index_led_matrix >= 8){
