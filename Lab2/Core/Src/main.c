@@ -223,10 +223,10 @@ void setMatrixRowData(uint8_t data){
 	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, !((data >> 1) & 0x1));
 	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, !((data >> 0) & 0x1));
 }
-void updateLEDMatrix(int index){
+void updateLEDMatrix(int index1){
 	turnOffAllMatrixColumn();
-	setMatrixRowData(matrix_buffer[index]);
-	switch (index){
+	setMatrixRowData(matrix_buffer[index1]);
+	switch (index1){
 	case 0:
 		HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, RESET);
 		break;
@@ -295,6 +295,7 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  turnOffAllMatrixColumn();
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
@@ -302,8 +303,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer0(25);
   setTimer1(25);
-  setTimer2(10);
-  setTimer3(10);
+  setTimer2(3);
+  setTimer3(30);
  int idx = 0;
   while (1)
   {
@@ -332,7 +333,7 @@ int main(void)
 	  if(idx >=4) idx = 0;}
 
 	  if(timer2_flag == 1){
-	  		  setTimer2(10);
+	  		  setTimer2(3);
 	  		  updateLEDMatrix(index_led_matrix);
 	  		  index_led_matrix++;
 	  		  if (index_led_matrix >= 8){
