@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "ex3.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -235,7 +235,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		 counter = 100;
 		 HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_4|GPIO_PIN_5);
 	 }
-	 update7SEG(idx,buffer[idx]);
+	 update7SEG(idx);
 	 idx++;
 	 if(idx >=4) idx = 0;
  }
